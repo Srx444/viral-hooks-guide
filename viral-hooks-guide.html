@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Энциклопедия Хуков для Исторического Контента</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="container">
+                <h1 class="app-title">Энциклопедия Хуков</h1>
+                <p class="app-subtitle">Для исторического контента</p>
+            </div>
+        </header>
+
+        <!-- Main Navigation -->
+        <nav id="main-nav" class="main-nav">
+            <div class="container">
+                <div class="nav-grid">
+                    <button class="nav-button" data-section="types">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Типы Хуков</span>
+                    </button>
+                    <button class="nav-button" data-section="examples">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text">Примеры и Разборы</span>
+                    </button>
+                    <button class="nav-button" data-section="recommendations">
+                        <span class="nav-icon">💡</span>
+                        <span class="nav-text">Рекомендации по Ролям</span>
+                    </button>
+                    <button class="nav-button" data-section="checklist">
+                        <span class="nav-icon">✓</span>
+                        <span class="nav-text">Чек-лист Качества</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content Sections -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Section 1: Hook Types -->
+                <section id="section-types" class="content-section">
+                    <div class="section-header">
+                        <button class="back-button" onclick="showMainNav()">← Назад</button>
+                        <h2>Типы Хуков</h2>
+                        <p class="section-description">Классификация всех 10 типов хуков с метриками эффективности</p>
+                    </div>
+                    <div id="types-grid" class="types-grid"></div>
+                </section>
+
+                <!-- Section 2: Examples -->
+                <section id="section-examples" class="content-section">
+                    <div class="section-header">
+                        <button class="back-button" onclick="showMainNav()">← Назад</button>
+                        <h2>Примеры и Разборы</h2>
+                        <p class="section-description">Коллекция проверенных хуков для исторического контента</p>
+                    </div>
+                    
+                    <div class="filters-panel">
+                        <div class="filter-group">
+                            <label>Тип хука:</label>
+                            <select id="filter-type" class="form-control">
+                                <option value="all">Все типы</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Категория:</label>
+                            <select id="filter-category" class="form-control">
+                                <option value="all">Все категории</option>
+                            </select>
+                        </div>
+                        <button class="btn btn--secondary" onclick="resetFilters()">Сбросить фильтры</button>
+                    </div>
+
+                    <div id="examples-grid" class="examples-grid"></div>
+                </section>
+
+                <!-- Section 3: Recommendations -->
+                <section id="section-recommendations" class="content-section">
+                    <div class="section-header">
+                        <button class="back-button" onclick="showMainNav()">← Назад</button>
+                        <h2>Рекомендации по Ролям</h2>
+                        <p class="section-description">Профессиональные советы для создания эффективных хуков</p>
+                    </div>
+                    
+                    <div class="tabs">
+                        <button class="tab-button active" data-tab="scriptwriters">Сценаристы</button>
+                        <button class="tab-button" data-tab="designers">Визуальные дизайнеры</button>
+                        <button class="tab-button" data-tab="audio">Аудио-специалисты</button>
+                    </div>
+
+                    <div id="tab-scriptwriters" class="tab-content active">
+                        <div id="scriptwriters-content"></div>
+                    </div>
+
+                    <div id="tab-designers" class="tab-content">
+                        <div id="designers-content"></div>
+                    </div>
+
+                    <div id="tab-audio" class="tab-content">
+                        <div id="audio-content"></div>
+                    </div>
+                </section>
+
+                <!-- Section 4: Checklist -->
+                <section id="section-checklist" class="content-section">
+                    <div class="section-header">
+                        <button class="back-button" onclick="showMainNav()">← Назад</button>
+                        <h2>Чек-лист Качества</h2>
+                        <p class="section-description">Оцените качество вашего хука по 10 критериям</p>
+                    </div>
+                    
+                    <div id="checklist-container"></div>
+                    
+                    <div class="checklist-actions">
+                        <button class="btn btn--primary btn--lg" onclick="evaluateChecklist()">Получить оценку</button>
+                        <button class="btn btn--secondary" onclick="resetChecklist()">Сбросить</button>
+                    </div>
+
+                    <div id="checklist-result" class="checklist-result"></div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Favorites Sidebar -->
+        <div id="favorites-sidebar" class="favorites-sidebar">
+            <div class="favorites-header">
+                <h3>Избранное</h3>
+                <button class="close-favorites" onclick="toggleFavorites()">×</button>
+            </div>
+            <div id="favorites-list" class="favorites-list"></div>
+        </div>
+
+        <button id="favorites-toggle" class="favorites-toggle" onclick="toggleFavorites()">
+            ★ <span id="favorites-count">0</span>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
